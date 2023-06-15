@@ -322,26 +322,39 @@
 
     <div class="min-h-screen flex items-center justify-center px-4 ">
         <div class="max-w-md w-full space-y-8 p-6 bg-white rounded-lg shadow-md" style="margin-top: -300px;">
+           <center>
             <div>
                 <h1 class="text-3xl font-extrabold text-gray-900">
                     Get lab report
                 </h1>
             </div>
+           </center>
 
             <form id="visitSearchForm" class="mt-4 space-y-6">
-                <div class="rounded-md shadow-sm flex items-center">
-                   
-                    <div class="mt-1 flex">
-                        <input type="text" id="visitID" name="visitID"
-                            class="py-2 px-3 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-md"
-                            placeholder="Enter visitID from your bill" required>
-                        <button type="submit"
-                            class="ml-2 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:border-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Submit
-                        </button>
-                    </div>
+                <div class="rounded-md shadow-sm">
+                  <div class="mt-1">
+                    <label for="visitID" class="block text-lg font-medium text-gray-700"><b>Visit ID</b></label>
+                    <input type="text" id="visitID" name="visitID"
+                      class="py-2 px-3 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-md"
+                      placeholder="Enter visitID from your bill" required>
+                  </div>
                 </div>
-            </form>
+                <div class="rounded-md shadow-sm">
+                  <div class="mt-1">
+                    <label for="password" class="block text-lg font-medium text-gray-700"><b>Password</b></label>
+                    <input type="password" id="password" name="password"
+                      class="py-2 px-3 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-md"
+                      placeholder="Enter your password" required>
+                  </div>
+                </div>
+                <div class="flex justify-center">
+                  <button type="submit"
+                    class="w-full mt-4 flex justify-center py-2 px-4 border border-transparent text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:border-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Submit
+                  </button>
+                </div>
+              </form>
+              
         </div>
     </div>
 
@@ -352,9 +365,10 @@
             event.preventDefault(); // Prevent form submission
 
             const visitID = document.getElementById('visitID').value;
-            if (visitID === '123') {
+            const password = document.getElementById('password').value;
+            if (visitID === 'EK20230601/46' && password === '1234567890') {
                 // Construct the URL for the PDF
-                const pdfURL = 'images/resume.pdf';
+                const pdfURL = 'https://ivet.hodo.in/lr/v/0p3c4r641b5x1q4c6t31110y4t35486z';
 
                 // Create a floating window
                 const floatingWindow = document.createElement('div');
@@ -378,6 +392,9 @@
 
                 // Add the floating window to the document body
                 document.body.appendChild(floatingWindow);
+            }
+            else{
+                alert('Invalid Visit ID or Password');
             }
         });
     </script>
